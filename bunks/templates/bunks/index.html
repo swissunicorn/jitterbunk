@@ -1,0 +1,18 @@
+<h2>BUNK HISTORY</h2>
+{% if bunks_list %}
+	{% for b in bunks_list %}
+		<p><img src="{{b.from_user.photo}}" style="width:35px;height:35px"> <img src="{{b.to_user.photo}}" style="width:35px;height:35px"> {{b}}</p>
+	{% endfor %}
+{% else %}
+	<p>No one has bunked yet. Be the first!</p>
+{% endif %}
+<div class="view bunks">
+	<p>View someone's bunks!</p>
+	{% for u in users_list %}
+		<a class="btn btn-primary" href="/bunks/{{u.username}}">
+			{{u}} 
+			<img src="{{u.photo}}" style="width:35px;height:35px">
+		</a>
+	</br>
+	{% endfor %}
+</div>

@@ -1,0 +1,21 @@
+<h1>BUNK SOMEONE</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<div id="you">
+	<p>User: {{ u.username }} <img src="{{u.photo}}" style="width:35px;height:35px"></p>
+</div>
+
+<div id="bunk options">
+	<!-- idk if this works -->
+	<form action="{% url 'bunks:makeBunk' u.username %}" method="post">
+		{% csrf_token %}
+		{% for other in other_users %}
+			<input type="radio" name="username" id="other{{ forloop.counter }}" value="{{ other.username }}" /> 
+			<label for="other{{ forloop.counter }}">{{ other.username }} <img src="{{other.photo}}" style="width:35px;height:35px">
+			</label><br />
+		{% endfor %}
+<input type="submit" value="Bunk" />
+</form>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="outgoing">
+	<h2>OUTGOING</h2>
+{% if outgoing %}
+	{% for out in outgoing %}
+		<p><img src="{{out.from_user.photo}}" style="width:35px;height:35px"> <img src="{{out.to_user.photo}}" style="width:35px;height:35px"> {{out}}</p>
+	{% endfor %}
+{% else %}
+	<p>{{u}} has not bunked anyone yet.</p>
+{% endif %}
+</div>
+
+<div class="incoming">
+	<h2>RECEIVED</h2>
+{% if incoming %}
+	{% for rec in incoming %}
+		<p><img src="{{rec.from_user.photo}}" style="width:35px;height:35px"> <img src="{{rec.to_user.photo}}" style="width:35px;height:35px"> {{rec}}</p>
+	{% endfor %}
+{% else %}
+	<p>{{u}} has not been bunked yet.</p>
+{% endif %}
+</div>
+
+<div class="newbunk">
+	<a class="btn btn-primary" href="/bunks/{{u}}/bunk">Bunk someone!</a>
+</br>
+	<a class="btn btn-primary" href="/bunks">Back to all bunks</a>
+</div>
+
+<!-- 
+want to:
+display OUTGOING -->
