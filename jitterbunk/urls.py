@@ -16,8 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-# need to be able to do bunks/lincoln
-
 urlpatterns = [
     url(r'^bunks/', include('bunks.urls', namespace='bunks')),
     url(r'^admin/', admin.site.urls),
